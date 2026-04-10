@@ -14,9 +14,9 @@ const Contact = () => {
     e.preventDefault();
     setSending(true);
 
-    emailjs.init("YOUR_PUBLIC_KEY");
+    emailjs.init("-8AwmshZ2fUNhg-TlR");
 
-    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+    emailjs.send("service_b8hqf67", "template_plf0u1r", {
       from_name: formData.name,
       from_email: formData.email,
       subject: formData.subject,
