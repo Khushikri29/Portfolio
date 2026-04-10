@@ -13,14 +13,14 @@ const Skills = () => {
 
   return (
     <section id="skills" className="container">
-      <h2 className="section-title serif">Technical Skills</h2>
+      <h2 className="section-title serif reveal-hidden">Technical Skills</h2>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '2rem' }}>
         {categories.map((cat, idx) => (
-          <div key={idx} className="skill-group animate-up" style={{ animationDelay: `${idx * 0.1}s` }}>
-            <h3 style={{ fontSize: '1.2rem', marginBottom: '1.5rem', color: '#b85c38' }}>{cat.title}</h3>
+          <div key={idx} className="skill-group reveal-hidden" style={{ transitionDelay: `${idx * 100}ms` }}>
+            <h3 style={{ fontSize: '1.2rem', marginBottom: '1.5rem', color: '#a0522d' }}>{cat.title}</h3>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem' }}>
               {cat.skills.map((skill, sIdx) => (
-                <span key={sIdx} className="skill-tag">{skill}</span>
+                <span key={sIdx} className="skill-tag" style={{ transitionDelay: `${(idx * 100) + (sIdx * 50)}ms` }}>{skill}</span>
               ))}
             </div>
           </div>

@@ -1,26 +1,74 @@
 import React, { useEffect, useState } from 'react';
 
 const WelcomeScreen = ({ onFinish }) => {
-  const [step, setStep] = useState(0);
+  const [line1, setLine1] = useState("");
+  const [line2, setLine2] = useState("");
+  const [line3, setLine3] = useState("");
+  const [activeLine, setActiveLine] = useState(1);
   const [fadeOut, setFadeOut] = useState(false);
-  const name = "Khushi Kumari";
+
+  const text1 = "Hello";
+  const text2 = "Welcome to my Portfolio";
+  const text3 = "Khushi Kumari";
 
   useEffect(() => {
-    // Prevent scrolling during welcome
     document.body.style.overflow = 'hidden';
 
-    const timers = [
-      setTimeout(() => setStep(1), 400),   // "Hello"
-      setTimeout(() => setStep(2), 1000),  // "Welcome to my Portfolio"
-      setTimeout(() => setStep(3), 1600),  // Start "Khushi Kumari" stagger
-      setTimeout(() => setFadeOut(true), 2800),
-      setTimeout(() => {
-        document.body.style.overflow = 'auto';
-        onFinish();
-      }, 3800)
-    ];
+    let i = 0;
+    let j = 0;
+    let k = 0;
 
-    return () => timers.forEach(t => clearTimeout(t));
+    const type1 = () => {
+      const timer = setInterval(() => {
+        setLine1(text1.substring(0, i + 1));
+        i++;
+        if (i >= text1.length) {
+          clearInterval(timer);
+          setTimeout(() => {
+            setActiveLine(2);
+            type2();
+          }, 300);
+        }
+      }, 100);
+    };
+
+    const type2 = () => {
+      const timer = setInterval(() => {
+        setLine2(text2.substring(0, j + 1));
+        j++;
+        if (j >= text2.length) {
+          clearInterval(timer);
+          setTimeout(() => {
+            setActiveLine(3);
+            type3();
+          }, 300);
+        }
+      }, 60);
+    };
+
+    const type3 = () => {
+      const timer = setInterval(() => {
+        setLine3(text3.substring(0, k + 1));
+        k++;
+        if (k >= text3.length) {
+          clearInterval(timer);
+          setTimeout(() => {
+            setActiveLine(4); // No active line typing
+            setTimeout(() => setFadeOut(true), 1000);
+            setTimeout(() => {
+              document.body.style.overflow = 'auto';
+              onFinish();
+            }, 2000);
+          }, 500);
+        }
+      }, 80);
+    };
+
+    type1();
+
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
   }, [onFinish]);
 
   return (
@@ -33,62 +81,52 @@ const WelcomeScreen = ({ onFinish }) => {
       backgroundColor: '#faf7f2',
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: center,
-      alignItems: center,
+      justifyContent: 'center',
+      alignItems: 'center',
       zIndex: 9999,
       transition: 'opacity 1s ease-out',
       opacity: fadeOut ? 0 : 1,
       pointerEvents: fadeOut ? 'none' : 'auto'
     }}>
-      <div className="serif" style={{
+      <div className="serif welcome-item" style={{
         fontSize: '1rem',
         letterSpacing: '0.3rem',
         textTransform: 'uppercase',
         color: '#9a8e88',
         margin: '0.5rem 0',
-        opacity: step >= 1 ? 1 : 0,
-        transform: step >= 1 ? 'translateY(0)' : 'translateY(20px)',
-        transition: 'all 0.6s ease'
+        height: '1.5em'
       }}>
-        Hello
+        {line1}{activeLine === 1 && <span className="typewriter-cursor"></span>}
       </div>
-      <div style={{
+      
+      <div className="welcome-item" style={{
         fontSize: '1.5rem',
-        color: '#1a1614',
+        color: '#111007',
         margin: '0.5rem 0',
-        opacity: step >= 2 ? 1 : 0,
-        transform: step >= 2 ? 'translateY(0)' : 'translateY(20px)',
-        transition: 'all 0.6s ease'
+        height: '1.5em'
       }}>
-        Welcome to my Portfolio
+        {line2}{activeLine === 2 && <span className="typewriter-cursor"></span>}
       </div>
-      <div className="serif" style={{
+
+      <div className="serif welcome-item" style={{
         fontSize: '3.5rem',
-        color: '#b85c38',
+        color: '#a0522d',
         margin: '0.5rem 0',
         textAlign: 'center',
-        opacity: step >= 3 ? 1 : 0
+        height: '1.5em'
       }}>
-        {name.split('').map((char, i) => (
-          <span
-            key={i}
-            style={{
-              display: 'inline-block',
-              transition: 'all 0.4s ease',
-              transitionDelay: `${i * 50}ms`,
-              opacity: step >= 3 ? 1 : 0,
-              transform: step >= 3 ? 'translateY(0)' : 'translateY(10px)'
-            }}
-          >
-            {char === ' ' ? '\u00A0' : char}
-          </span>
-        ))}
+        {line3}{activeLine === 3 && <span className="typewriter-cursor"></span>}
       </div>
+
+      <style>{`
+        .welcome-item {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      `}</style>
     </div>
   );
 };
-
-// Add helper for centered style since I used it above
-const center = 'center';
 
 export default WelcomeScreen;

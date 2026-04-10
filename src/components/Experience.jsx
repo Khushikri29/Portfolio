@@ -26,13 +26,13 @@ const Experience = () => {
 
   return (
     <section id="experience" className="container">
-      <h2 className="section-title serif">Experience</h2>
+      <h2 className="section-title serif reveal-hidden">Experience</h2>
       <div className="timeline">
         {experiences.map((exp, idx) => (
-          <div key={idx} className="exp-item animate-up" style={{ animationDelay: `${idx * 0.2}s` }}>
+          <div key={idx} className="exp-item slide-left-hidden" style={{ transitionDelay: `${idx * 200}ms` }}>
             <h3 className="serif" style={{ fontSize: '1.5rem', marginBottom: '0.2rem' }}>{exp.role}</h3>
-            <p style={{ fontWeight: 600, color: '#b85c38', marginBottom: '0.5rem' }}>{exp.company}</p>
-            <p style={{ fontSize: 0.9 + 'rem', color: '#9a8e88', marginBottom: '1rem' }}>{exp.date}</p>
+            <p style={{ fontWeight: 600, color: '#a0522d', marginBottom: '0.5rem' }}>{exp.company}</p>
+            <p style={{ fontSize: '0.9rem', color: '#9a8e88', marginBottom: '1rem' }}>{exp.date}</p>
             <ul style={{ listStyle: 'disc', paddingLeft: '1.2rem' }}>
               {exp.points.map((pt, pIdx) => (
                 <li key={pIdx} style={{ marginBottom: '0.8rem' }}>{pt}</li>
@@ -54,7 +54,7 @@ const Experience = () => {
           top: 0;
           width: 2px;
           height: 100%;
-          background-color: #b85c38;
+          background-color: #a0522d;
           opacity: 0.2;
         }
         .exp-item {
@@ -69,7 +69,7 @@ const Experience = () => {
           top: 0.5rem;
           width: 10px;
           height: 10px;
-          background-color: #b85c38;
+          background-color: #a0522d;
           border-radius: 50%;
         }
       `}</style>

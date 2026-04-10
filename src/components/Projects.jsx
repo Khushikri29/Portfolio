@@ -57,11 +57,11 @@ const Projects = () => {
 
   return (
     <section id="projects" className="container">
-      <h2 className="section-title serif">Projects</h2>
+      <h2 className="section-title serif reveal-hidden">Projects</h2>
       <div className="projects-grid">
         {projects.map((proj, idx) => (
-          <div key={idx} className="project-card animate-up" style={{ animationDelay: `${idx * 0.1}s` }}>
-            <h3 className="serif project-name">{proj.name}</h3>
+          <div key={idx} className="project-card reveal-hidden" style={{ transitionDelay: `${idx * 150}ms` }}>
+            <h3 className="serif project-name" style={{ color: '#111007' }}>{proj.name}</h3>
             <p className="project-tech">{proj.tech}</p>
             <ul className="project-points">
               {proj.points.map((pt, pIdx) => (
@@ -77,7 +77,7 @@ const Projects = () => {
       <style>{`
         .projects-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+          grid-template_columns: repeat(auto-fill, minmax(320px, 1fr));
           gap: 2.5rem;
         }
         .project-card {
@@ -87,12 +87,12 @@ const Projects = () => {
           box-shadow: var(--card-shadow);
           display: flex;
           flex-direction: column;
-          transition: var(--transition);
+          transition: all 0.4s ease;
           border-top: 4px solid transparent;
         }
         .project-card:hover {
           transform: translateY(-10px);
-          border-top-color: #b85c38;
+          box-shadow: 0 0 25px rgba(201, 149, 106, 0.4); /* Glow effect */
         }
         .project-name { font-size: 1.6rem; margin-bottom: 1rem; }
         .project-tech { font-size: 0.8rem; color: #9a8e88; margin-bottom: 1.5rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
@@ -101,13 +101,20 @@ const Projects = () => {
         .project-github {
           align-self: flex-start;
           padding: 0.6rem 1.2rem;
-          border: 1px solid #1a1614;
+          border: 1px solid #111007;
           border-radius: 50px;
           font-size: 0.85rem;
           font-weight: 600;
           transition: all 0.4s ease;
         }
-        .project-github:hover { background: #1a1614; color: white; }
+        .project-github:hover { background: #111007; color: white; }
+        
+        @media (max-width: 768px) {
+           .projects-grid {
+              display: grid;
+              grid-template-columns: 1fr;
+           }
+        }
       `}</style>
     </section>
   );

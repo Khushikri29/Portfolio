@@ -14,21 +14,26 @@ function App() {
   const [showWelcome, setShowWelcome] = useState(true);
 
   useEffect(() => {
+    if (showWelcome) return;
+
     // Reveal animations on scroll
-    const observerOptions = { threshold: 0.1 };
+    const observerOptions = { 
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px' 
+    };
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('animate-up');
+          entry.target.classList.add('reveal-visible');
+          entry.target.classList.add('slide-left-visible'); // For experience items
           observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
 
-    if (!showWelcome) {
-      const animatedEls = document.querySelectorAll('section, .skill-group, .exp-item, .project-card, .ach-card, .edu-card');
-      animatedEls.forEach(el => observer.observe(el));
-    }
+    const animatedEls = document.querySelectorAll('.reveal-hidden, .slide-left-hidden');
+    animatedEls.forEach(el => observer.observe(el));
 
     return () => observer.disconnect();
   }, [showWelcome]);

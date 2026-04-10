@@ -16,7 +16,7 @@ const Navbar = () => {
     position: 'fixed',
     top: 0,
     width: '100%',
-    padding: isScrolled ? '0.7rem 0' : '0.9rem 0',
+    padding: '10px 40px',
     backgroundColor: '#faf7f2',
     zIndex: 1000,
     transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
@@ -46,8 +46,10 @@ const Navbar = () => {
 
   return (
     <nav style={navStyles}>
-      <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <a href="#" className="serif" style={{ fontSize: '1.8rem', color: '#b85c38', fontWeight: 900 }}>KK</a>
+      <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: '1200px' }}>
+        <a href="#" style={{ display: 'flex', alignItems: 'center' }}>
+          <span style={{ fontSize: '2rem' }}>👩‍💻</span>
+        </a>
         
         {/* Desktop Links */}
         <div style={menuStyles} className="nav-desktop">
@@ -57,7 +59,7 @@ const Navbar = () => {
           <a href="#projects">Projects</a>
           <a href="#achievements">Achievements</a>
           <a href="#contact">Contact</a>
-          <a href="Khushi_Kumari_SDE.pdf" download className="cv-btn">⬇ Download CV</a>
+          <a href="/Khushi_Kumari_SDE.pdf" download="Khushi_Kumari_SDE.pdf" className="cv-btn">⬇ Download CV</a>
         </div>
 
         {/* Mobile Toggle */}
@@ -65,7 +67,7 @@ const Navbar = () => {
           <i className={`fa-solid ${isMobileMenuOpen ? 'fa-xmark' : 'fa-bars'}`}></i>
         </div>
 
-        {/* Mobile menu logic via CSS query added to index.css or inline */}
+        {/* Mobile menu */}
         {isMobileMenuOpen && (
              <div style={mobileMenuStyles}>
                 <a href="#home" onClick={() => setIsMobileMenuOpen(false)}>Home</a>
@@ -74,7 +76,7 @@ const Navbar = () => {
                 <a href="#projects" onClick={() => setIsMobileMenuOpen(false)}>Projects</a>
                 <a href="#achievements" onClick={() => setIsMobileMenuOpen(false)}>Achievements</a>
                 <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact</a>
-                <a href="Khushi_Kumari_SDE.pdf" download className="cv-btn">⬇ Download CV</a>
+                <a href="/Khushi_Kumari_SDE.pdf" download="Khushi_Kumari_SDE.pdf" className="cv-btn">⬇ Download CV</a>
              </div>
         )}
       </div>
@@ -82,16 +84,19 @@ const Navbar = () => {
       <style>{`
         .cv-btn {
           padding: 0.6rem 1.5rem;
-          border: 1.5px solid #b85c38;
+          border: 1.5px solid #a0522d;
           border-radius: 50px;
-          color: #b85c38;
+          color: #a0522d;
           font-weight: 600;
           font-size: 0.9rem;
           transition: all 0.4s ease;
         }
         .cv-btn:hover {
-          background-color: #b85c38;
+          background-color: #a0522d;
           color: white;
+        }
+        .nav-desktop a:hover {
+          color: #a0522d;
         }
         @media (max-width: 768px) {
           .nav-desktop { display: none !important; }

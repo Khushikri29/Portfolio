@@ -32,17 +32,17 @@ const Achievements = () => {
 
   return (
     <section id="achievements" className="container">
-      <h2 className="section-title serif">Achievements & Recognition</h2>
+      <h2 className="section-title serif reveal-hidden">Achievements & Recognition</h2>
       <div className="ach-grid">
         {achievements.map((ach, idx) => (
           ach.type === 'stat' ? (
-            <div key={idx} className="stat-card animate-up" style={{ animationDelay: `${idx * 0.15}s` }}>
+            <div key={idx} className="stat-card reveal-hidden" style={{ transitionDelay: `${idx * 150}ms` }}>
               <span className="serif" style={{ fontSize: '2.5rem', fontWeight: 800, display: 'block' }}>{ach.val}</span>
               <p>{ach.label}</p>
               <a href={ach.link} target="_blank" rel="noopener noreferrer" className="stat-btn">View Profile</a>
             </div>
           ) : (
-            <div key={idx} className="ach-card animate-up" style={{ animationDelay: `${idx * 0.15}s` }}>
+            <div key={idx} className="ach-card reveal-hidden" style={{ transitionDelay: `${idx * 150}ms` }}>
               <h3 className="serif" style={{ fontSize: '1.2rem', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>{ach.title}</h3>
               <p style={{ fontSize: '0.95rem' }}>{ach.desc}</p>
               {ach.extra && <span style={{ display: 'block', marginTop: '0.5rem', fontSize: '0.85rem', color: '#9a8e88' }}>{ach.extra}</span>}
@@ -61,10 +61,10 @@ const Achievements = () => {
           padding: 2rem;
           border-radius: 12px;
           box-shadow: var(--card-shadow);
-          border-left: 5px solid #d4af37; /* Gold accent */
+          border-left: 5px solid #d4af37;
         }
         .stat-card {
-          background: #b85c38;
+          background: #a0522d;
           color: white;
           padding: 2rem;
           border-radius: 12px;
@@ -75,7 +75,7 @@ const Achievements = () => {
           display: inline-block;
           padding: 0.5rem 1rem;
           background: white;
-          color: #b85c38;
+          color: #a0522d;
           border-radius: 50px;
           font-weight: 700;
           font-size: 0.8rem;

@@ -1,8 +1,9 @@
 :root {
   --bg-cream: #faf7f2;
-  --text-ink: #1a1614;
+  --text-ink: #111007; /* Deep black */
   --text-muted: #9a8e88;
-  --accent-terracotta: #b85c38;
+  --accent-terracotta: #a0522d; /* Deeper terracotta */
+  --accent-glow: rgba(201, 149, 106, 0.3);
   --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
   --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -56,17 +57,51 @@ section {
   position: relative;
 }
 
-/* Animations */
+/* --- Typewriter Helper --- */
+.typewriter-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background-color: var(--accent-terracotta);
+  margin-left: 2px;
+  animation: blink 0.8s step-end infinite;
+  vertical-align: middle;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* --- Reveal Animations --- */
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.reveal-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.slide-left-hidden {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.6s ease-out;
+}
+
+.slide-left-visible {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+
+/* Animations (Generic) */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-.animate-up {
-  opacity: 0;
-  animation: fadeInUp 0.8s forwards;
-}
-
+/* Responsive */
 @media (max-width: 768px) {
   section { padding: 4rem 0; }
 }

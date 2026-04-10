@@ -14,7 +14,6 @@ const Contact = () => {
     e.preventDefault();
     setSending(true);
 
-    // Initialize with public key
     emailjs.init("YOUR_PUBLIC_KEY");
 
     emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
@@ -63,8 +62,8 @@ const Contact = () => {
   return (
     <section id="contact" className="container">
       <div className="contact-container">
-        <div className="contact-info animate-up">
-          <h2 className="serif" style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Let's work together</h2>
+        <div className="contact-info reveal-hidden">
+          <h2 className="serif" style={{ fontSize: '2.5rem', marginBottom: '1rem', color: '#111007' }}>Let's work together</h2>
           <p style={{ marginBottom: '3rem', color: '#9a8e88' }}>I'd love to hear about your project, idea, or opportunity. Drop me a message!</p>
           <div className="contact-links">
             <a href="mailto:khushikumari201280@gmail.com" className="contact-link">
@@ -79,7 +78,7 @@ const Contact = () => {
           </div>
         </div>
 
-        <form className="contact-form animate-up" onSubmit={handleSubmit} style={{ animationDelay: '0.2s' }}>
+        <form className="contact-form reveal-hidden" onSubmit={handleSubmit} style={{ transitionDelay: '200ms' }}>
           <div className="form-row">
             <input 
               type="text" 
@@ -119,7 +118,7 @@ const Contact = () => {
       <style>{`
         .contact-container {
           display: grid;
-          grid-template-columns: 1fr 1.5fr;
+          grid-template_columns: 1fr 1.5fr;
           gap: 4rem;
         }
         .contact-links { display: flex; flex-direction: column; gap: 1rem; }
@@ -134,8 +133,8 @@ const Contact = () => {
           width: fit-content;
           transition: all 0.4s ease;
         }
-        .contact-link:hover { border-color: #b85c38; color: #b85c38; }
-        .contact-link i { font-size: 1.3rem; color: #b85c38; }
+        .contact-link:hover { border-color: #a0522d; color: #a0522d; }
+        .contact-link i { font-size: 1.3rem; color: #a0522d; }
 
         .contact-form { display: grid; gap: 1.5rem; }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
@@ -149,9 +148,9 @@ const Contact = () => {
           outline: none;
           transition: all 0.4s ease;
         }
-        input:focus, textarea:focus { border-color: #b85c38; }
+        input:focus, textarea:focus { border-color: #a0522d; }
         .submit-btn {
-          background: #b85c38;
+          background: #a0522d;
           color: white;
           padding: 1rem;
           border: none;
@@ -160,7 +159,7 @@ const Contact = () => {
           cursor: pointer;
           transition: all 0.4s ease;
         }
-        .submit-btn:hover { opacity: 0.9; }
+        .submit-btn:hover { background-color: #8b4513; }
         .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
 
         @media (max-width: 850px) {
