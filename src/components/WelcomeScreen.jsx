@@ -53,7 +53,7 @@ const WelcomeScreen = ({ onFinish }) => {
         if (k >= text3.length) {
           clearInterval(timer);
           setTimeout(() => {
-            setActiveLine(4); // No active line typing
+            setActiveLine(4);
             setTimeout(() => setFadeOut(true), 1000);
             setTimeout(() => {
               document.body.style.overflow = 'auto';
@@ -78,7 +78,7 @@ const WelcomeScreen = ({ onFinish }) => {
       left: 0,
       width: '100%',
       height: '100%',
-      backgroundColor: '#faf7f2',
+      backgroundColor: 'var(--bg-primary)',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
@@ -92,7 +92,7 @@ const WelcomeScreen = ({ onFinish }) => {
         fontSize: '1rem',
         letterSpacing: '0.3rem',
         textTransform: 'uppercase',
-        color: '#9a8e88',
+        color: 'var(--text-primary)',
         margin: '0.5rem 0',
         height: '1.5em'
       }}>
@@ -101,7 +101,7 @@ const WelcomeScreen = ({ onFinish }) => {
       
       <div className="welcome-item" style={{
         fontSize: '1.5rem',
-        color: '#111007',
+        color: 'var(--text-secondary)',
         margin: '0.5rem 0',
         height: '1.5em'
       }}>
@@ -110,7 +110,7 @@ const WelcomeScreen = ({ onFinish }) => {
 
       <div className="serif welcome-item" style={{
         fontSize: '3.5rem',
-        color: '#a0522d',
+        color: 'var(--accent)',
         margin: '0.5rem 0',
         textAlign: 'center',
         height: '1.5em'

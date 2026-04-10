@@ -31,58 +31,67 @@ const Achievements = () => {
   ];
 
   return (
-    <section id="achievements" className="container">
-      <h2 className="section-title serif reveal-hidden">Achievements & Recognition</h2>
-      <div className="ach-grid">
-        {achievements.map((ach, idx) => (
-          ach.type === 'stat' ? (
-            <div key={idx} className="stat-card reveal-hidden" style={{ transitionDelay: `${idx * 150}ms` }}>
-              <span className="serif" style={{ fontSize: '2.5rem', fontWeight: 800, display: 'block' }}>{ach.val}</span>
-              <p>{ach.label}</p>
-              <a href={ach.link} target="_blank" rel="noopener noreferrer" className="stat-btn">View Profile</a>
-            </div>
-          ) : (
-            <div key={idx} className="ach-card reveal-hidden" style={{ transitionDelay: `${idx * 150}ms` }}>
-              <h3 className="serif" style={{ fontSize: '1.2rem', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>{ach.title}</h3>
-              <p style={{ fontSize: '0.95rem' }}>{ach.desc}</p>
-              {ach.extra && <span style={{ display: 'block', marginTop: '0.5rem', fontSize: '0.85rem', color: 'var(--text-muted)' }}>{ach.extra}</span>}
-            </div>
-          )
-        ))}
+    <section id="achievements" style={{ backgroundColor: 'var(--bg-primary)' }}>
+      <div className="container">
+        <h2 className="section-title serif reveal-hidden">Achievements & Recognition</h2>
+        <div className="ach-grid">
+          {achievements.map((ach, idx) => (
+            ach.type === 'stat' ? (
+              <div key={idx} className="stat-card reveal-hidden" style={{ transitionDelay: `${idx * 150}ms` }}>
+                <span className="serif" style={{ fontSize: '2.5rem', fontWeight: 800, display: 'block' }}>{ach.val}</span>
+                <p style={{ fontWeight: 600 }}>{ach.label}</p>
+                <a href={ach.link} target="_blank" rel="noopener noreferrer" className="stat-btn">View Profile</a>
+              </div>
+            ) : (
+              <div key={idx} className="ach-card reveal-hidden" style={{ transitionDelay: `${idx * 150}ms` }}>
+                <div className="ach-header">
+                  <h3 className="serif" style={{ fontSize: '1.2rem', color: 'var(--text-primary)' }}>{ach.title}</h3>
+                </div>
+                <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)' }}>{ach.desc}</p>
+                {ach.extra && <span style={{ display: 'block', marginTop: '0.5rem', fontSize: '0.85rem', color: 'var(--text-muted)' }}>{ach.extra}</span>}
+              </div>
+            )
+          ))}
+        </div>
       </div>
       <style>{`
         .ach-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+          grid-template_columns: repeat(auto-fill, minmax(300px, 1fr));
           gap: 2rem;
         }
         .ach-card {
-          background: var(--card-bg);
+          background: var(--bg-card);
           padding: 2rem;
-          border-radius: 12px;
-          border: 1px solid var(--card-border);
-          box-shadow: var(--card-shadow);
-          border-left: 5px solid var(--accent-color);
+          border-radius: 8px;
+          box-shadow: 0 5px 20px var(--shadow);
+          border-left: 4px solid var(--accent);
+          transition: var(--transition);
+        }
+        .ach-header {
+           margin-bottom: 0.8rem;
         }
         .stat-card {
-          background: var(--btn-bg);
-          color: var(--btn-text);
-          padding: 2rem;
+          background: var(--accent-light);
+          color: var(--text-primary);
+          padding: 2.5rem;
           border-radius: 12px;
+          border: 1.5px solid var(--accent);
           text-align: center;
+          box-shadow: 0 10px 30px var(--shadow);
         }
         .stat-btn {
-          margin-top: 1rem;
+          margin-top: 1.2rem;
           display: inline-block;
-          padding: 0.5rem 1rem;
-          background: var(--bg-color);
-          color: var(--accent-color);
+          padding: 0.6rem 1.2rem;
+          background: var(--text-primary);
+          color: white;
           border-radius: 50px;
           font-weight: 700;
           font-size: 0.8rem;
           transition: all 0.4s ease;
         }
-        .stat-btn:hover { opacity: 0.9; }
+        .stat-btn:hover { background: var(--accent); }
       `}</style>
     </section>
   );

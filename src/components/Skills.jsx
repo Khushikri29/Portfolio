@@ -12,35 +12,50 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="container">
-      <h2 className="section-title serif reveal-hidden">Technical Skills</h2>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '2rem' }}>
-        {categories.map((cat, idx) => (
-          <div key={idx} className="skill-group reveal-hidden" style={{ transitionDelay: `${idx * 100}ms` }}>
-            <h3 style={{ fontSize: '1.2rem', marginBottom: '1.5rem', color: 'var(--accent-color)' }}>{cat.title}</h3>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem' }}>
-              {cat.skills.map((skill, sIdx) => (
-                <span key={sIdx} className="skill-tag" style={{ transitionDelay: `${(idx * 100) + (sIdx * 50)}ms` }}>{skill}</span>
-              ))}
+    <section id="skills" style={{ backgroundColor: 'var(--bg-primary)' }}>
+      <div className="container">
+        <h2 className="section-title serif reveal-hidden">Technical Skills</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '2rem' }}>
+          {categories.map((cat, idx) => (
+            <div key={idx} className="skill-group reveal-hidden" style={{ transitionDelay: `${idx * 100}ms` }}>
+              <h3 style={{ fontSize: '0.8rem', marginBottom: '1.5rem', color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '2px' }}>{cat.title}</h3>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem' }}>
+                {cat.skills.map((skill, sIdx) => (
+                  <span 
+                    key={sIdx} 
+                    className="skill-tag scale-hidden" 
+                    style={{ transitionDelay: `${(idx * 50) + (sIdx * 30)}ms` }}
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
       <style>{`
         .skill-group {
-          background: var(--card-bg);
           padding: 2rem;
           border-radius: 12px;
-          border: 1px solid var(--card-border);
-          box-shadow: var(--card-shadow);
+          border: 1px solid var(--border);
+          background: var(--bg-card);
+          transition: var(--transition);
         }
         .skill-tag {
-          background-color: var(--accent-soft);
-          color: var(--text-main);
+          background-color: var(--bg-primary);
+          color: var(--text-primary);
           padding: 0.4rem 1rem;
           border-radius: 50px;
           font-size: 0.85rem;
-          font-weight: 500;
+          font-weight: 600;
+          border: 1px solid var(--border);
+          transition: all 0.3s ease;
+        }
+        .skill-tag:hover {
+          background-color: var(--accent-light);
+          border-color: var(--accent);
+          color: var(--accent);
         }
       `}</style>
     </section>

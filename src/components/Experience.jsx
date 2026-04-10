@@ -25,15 +25,15 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="container">
+    <section id="experience" className="container" style={{ backgroundColor: '#ffffff' }}>
       <h2 className="section-title serif reveal-hidden">Experience</h2>
       <div className="timeline">
         {experiences.map((exp, idx) => (
           <div key={idx} className="exp-item slide-left-hidden" style={{ transitionDelay: `${idx * 200}ms` }}>
-            <h3 className="serif" style={{ fontSize: '1.5rem', marginBottom: '0.2rem' }}>{exp.role}</h3>
-            <p style={{ fontWeight: 600, color: 'var(--accent-color)', marginBottom: '0.5rem' }}>{exp.company}</p>
-            <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginBottom: '1rem' }}>{exp.date}</p>
-            <ul style={{ listStyle: 'disc', paddingLeft: '1.2rem' }}>
+            <h3 className="serif" style={{ fontSize: '1.5rem', marginBottom: '0.2rem', color: 'var(--text-primary)', fontWeight: 'bold' }}>{exp.role}</h3>
+            <p style={{ fontWeight: 600, color: 'var(--accent)', marginBottom: '0.8rem' }}>{exp.company}</p>
+            <span className="date-badge">{exp.date}</span>
+            <ul style={{ listStyle: 'disc', paddingLeft: '1.2rem', marginTop: '1.2rem', color: 'var(--text-secondary)' }}>
               {exp.points.map((pt, pIdx) => (
                 <li key={pIdx} style={{ marginBottom: '0.8rem' }}>{pt}</li>
               ))}
@@ -52,10 +52,10 @@ const Experience = () => {
           position: absolute;
           left: 0;
           top: 0;
-          width: 2px;
+          width: 3px;
           height: 100%;
-          background-color: var(--accent-color);
-          opacity: 0.2;
+          background-color: var(--accent);
+          opacity: 0.6;
         }
         .exp-item {
           position: relative;
@@ -65,12 +65,22 @@ const Experience = () => {
         .exp-item::before {
           content: '';
           position: absolute;
-          left: -4px;
+          left: -4.5px;
           top: 0.5rem;
-          width: 10px;
-          height: 10px;
-          background-color: var(--accent-color);
+          width: 12px;
+          height: 12px;
+          background-color: var(--accent);
           border-radius: 50%;
+          z-index: 10;
+        }
+        .date-badge {
+          display: inline-block;
+          padding: 0.3rem 0.8rem;
+          background-color: var(--accent-light);
+          color: var(--accent);
+          border-radius: 4px;
+          font-size: 0.85rem;
+          font-weight: 700;
         }
       `}</style>
     </section>

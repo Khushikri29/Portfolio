@@ -12,12 +12,6 @@ import Footer from './components/Footer';
 
 function App() {
   const [showWelcome, setShowWelcome] = useState(true);
-  const [theme, setTheme] = useState(localStorage.getItem('portfolio-theme') || 'default');
-
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('portfolio-theme', theme);
-  }, [theme]);
 
   useEffect(() => {
     if (showWelcome) return;
@@ -32,12 +26,14 @@ function App() {
         if (entry.isIntersecting) {
           entry.target.classList.add('reveal-visible');
           entry.target.classList.add('slide-left-visible');
+          entry.target.classList.add('scale-visible');
           observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
 
-    const animatedEls = document.querySelectorAll('.reveal-hidden, .slide-left-hidden');
+    // Support multiple entrance types: reveal (translateY), slide-left (translateX), and scale
+    const animatedEls = document.querySelectorAll('.reveal-hidden, .slide-left-hidden, .scale-hidden');
     animatedEls.forEach(el => observer.observe(el));
 
     return () => observer.disconnect();
@@ -46,9 +42,10 @@ function App() {
   return (
     <>
       {showWelcome && <WelcomeScreen onFinish={() => setShowWelcome(false)} />}
+      
       {!showWelcome && (
         <div className="fade-in-content">
-          <Navbar currentTheme={theme} onThemeChange={setTheme} />
+          <Navbar />
           <main>
             <Hero />
             <Skills />
@@ -61,9 +58,10 @@ function App() {
           <Footer />
         </div>
       )}
+      
       <style>{`
         .fade-in-content {
-          animation: fadeIn 1s ease-out;
+          animation: fadeIn 1.2s ease-out;
         }
         @keyframes fadeIn {
           from { opacity: 0; }
