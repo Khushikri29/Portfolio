@@ -14,14 +14,13 @@ const Contact = () => {
     e.preventDefault();
     setSending(true);
 
-    emailjs.init("-8AwmshZ2fUNhg-TlR");
+    emailjs.init("YOdvloYZiqH3ph6CE");
 
     emailjs.send("service_b8hqf67", "template_plf0u1r", {
-      from_name: formData.name,
-      from_email: formData.email,
-      subject: formData.subject,
+      user_name: formData.name,
+      user_email: formData.email,
+      user_subject: formData.subject,
       message: formData.message,
-      to_email: "khushikumari201280@gmail.com"
     })
     .then(() => {
       showToast("Thank you! I'll get back to you soon 🌸", 'success');
