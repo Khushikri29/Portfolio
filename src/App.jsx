@@ -12,11 +12,16 @@ import Footer from './components/Footer';
 
 function App() {
   const [showWelcome, setShowWelcome] = useState(true);
+  const [theme, setTheme] = useState(localStorage.getItem('portfolio-theme') || 'default');
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('portfolio-theme', theme);
+  }, [theme]);
 
   useEffect(() => {
     if (showWelcome) return;
 
-    // Reveal animations on scroll
     const observerOptions = { 
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px' 
@@ -26,7 +31,7 @@ function App() {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('reveal-visible');
-          entry.target.classList.add('slide-left-visible'); // For experience items
+          entry.target.classList.add('slide-left-visible');
           observer.unobserve(entry.target);
         }
       });
@@ -43,7 +48,7 @@ function App() {
       {showWelcome && <WelcomeScreen onFinish={() => setShowWelcome(false)} />}
       {!showWelcome && (
         <div className="fade-in-content">
-          <Navbar />
+          <Navbar currentTheme={theme} onThemeChange={setTheme} />
           <main>
             <Hero />
             <Skills />

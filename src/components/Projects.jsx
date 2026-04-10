@@ -61,7 +61,7 @@ const Projects = () => {
       <div className="projects-grid">
         {projects.map((proj, idx) => (
           <div key={idx} className="project-card reveal-hidden" style={{ transitionDelay: `${idx * 150}ms` }}>
-            <h3 className="serif project-name" style={{ color: '#111007' }}>{proj.name}</h3>
+            <h3 className="serif project-name">{proj.name}</h3>
             <p className="project-tech">{proj.tech}</p>
             <ul className="project-points">
               {proj.points.map((pt, pIdx) => (
@@ -77,41 +77,41 @@ const Projects = () => {
       <style>{`
         .projects-grid {
           display: grid;
-          grid-template_columns: repeat(auto-fill, minmax(320px, 1fr));
+          grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
           gap: 2.5rem;
         }
         .project-card {
-          background: white;
+          background: var(--card-bg);
           padding: 2.5rem;
           border-radius: 12px;
+          border: 1px solid var(--card-border);
           box-shadow: var(--card-shadow);
           display: flex;
           flex-direction: column;
           transition: all 0.4s ease;
-          border-top: 4px solid transparent;
         }
         .project-card:hover {
           transform: translateY(-10px);
-          box-shadow: 0 0 25px rgba(201, 149, 106, 0.4); /* Glow effect */
+          box-shadow: 0 0 25px var(--accent-glow);
         }
-        .project-name { font-size: 1.6rem; margin-bottom: 1rem; }
-        .project-tech { font-size: 0.8rem; color: #9a8e88; margin-bottom: 1.5rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
-        .project-points { flex-grow: 1; margin-bottom: 2rem; font-size: 0.95rem; list-style: disc; padding-left: 1rem; }
+        .project-name { font-size: 1.6rem; margin-bottom: 1rem; color: var(--text-main); }
+        .project-tech { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.5rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        .project-points { flex-grow: 1; margin-bottom: 2rem; font-size: 0.95rem; list-style: disc; padding-left: 1rem; color: var(--text-main); }
         .project-points li { margin-bottom: 0.5rem; }
         .project-github {
           align-self: flex-start;
           padding: 0.6rem 1.2rem;
-          border: 1px solid #111007;
+          border: 1px solid var(--text-main);
           border-radius: 50px;
           font-size: 0.85rem;
           font-weight: 600;
+          color: var(--text-main);
           transition: all 0.4s ease;
         }
-        .project-github:hover { background: #111007; color: white; }
+        .project-github:hover { background: var(--text-main); color: var(--bg-color); }
         
         @media (max-width: 768px) {
            .projects-grid {
-              display: grid;
               grid-template-columns: 1fr;
            }
         }

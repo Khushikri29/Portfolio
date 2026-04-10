@@ -17,7 +17,7 @@ const Skills = () => {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '2rem' }}>
         {categories.map((cat, idx) => (
           <div key={idx} className="skill-group reveal-hidden" style={{ transitionDelay: `${idx * 100}ms` }}>
-            <h3 style={{ fontSize: '1.2rem', marginBottom: '1.5rem', color: '#a0522d' }}>{cat.title}</h3>
+            <h3 style={{ fontSize: '1.2rem', marginBottom: '1.5rem', color: 'var(--accent-color)' }}>{cat.title}</h3>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem' }}>
               {cat.skills.map((skill, sIdx) => (
                 <span key={sIdx} className="skill-tag" style={{ transitionDelay: `${(idx * 100) + (sIdx * 50)}ms` }}>{skill}</span>
@@ -28,13 +28,15 @@ const Skills = () => {
       </div>
       <style>{`
         .skill-group {
-          background: rgba(255, 255, 255, 0.5);
+          background: var(--card-bg);
           padding: 2rem;
           border-radius: 12px;
+          border: 1px solid var(--card-border);
           box-shadow: var(--card-shadow);
         }
         .skill-tag {
-          background-color: #f0ede8;
+          background-color: var(--accent-soft);
+          color: var(--text-main);
           padding: 0.4rem 1rem;
           border-radius: 50px;
           font-size: 0.85rem;

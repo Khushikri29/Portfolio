@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer style={{ padding: '5rem 0', textAlign: 'center', background: '#f0ebe3', borderTop: '1px solid rgba(160, 82, 45, 0.1)' }}>
+    <footer style={{ padding: '5rem 0', textAlign: 'center', background: 'rgba(0,0,0,0.03)', borderTop: '1px solid var(--accent-soft)' }}>
       <div className="container">
         <span style={{ fontSize: '2.5rem', display: 'block', marginBottom: '1.5rem' }}>👩‍💻</span>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '2.5rem', marginBottom: '2.5rem' }}>
@@ -19,18 +19,18 @@ const Footer = () => {
             <i className="fa-regular fa-envelope"></i>
           </a>
         </div>
-        <div style={{ width: '50px', height: '1.5px', background: '#a0522d', margin: '0 auto 2rem', opacity: 0.2 }}></div>
-        <p className="serif" style={{ color: '#111007', fontSize: '1.1rem' }}>Crafted with care by Khushi Kumari &copy; 2026</p>
+        <div style={{ width: '50px', height: '1.5px', background: 'var(--accent-color)', margin: '0 auto 2rem', opacity: 0.2 }}></div>
+        <p className="serif" style={{ color: 'var(--text-main)', fontSize: '1.1rem' }}>Crafted by Khushi Kumari &copy; 2026</p>
       </div>
       <style>{`
         .footer-icon {
           font-size: 1.6rem;
-          color: #a0522d;
+          color: var(--accent-color);
           transition: all 0.4s ease;
         }
         .footer-icon:hover {
           transform: translateY(-5px);
-          color: #8b4513;
+          color: var(--btn-hover);
         }
       `}</style>
     </footer>

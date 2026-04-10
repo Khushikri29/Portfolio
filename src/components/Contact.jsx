@@ -62,8 +62,8 @@ const Contact = () => {
     <section id="contact" className="container">
       <div className="contact-container">
         <div className="contact-info reveal-hidden">
-          <h2 className="serif" style={{ fontSize: '2.5rem', marginBottom: '1rem', color: '#111007' }}>Let's work together</h2>
-          <p style={{ marginBottom: '3rem', color: '#9a8e88' }}>I'd love to hear about your project, idea, or opportunity. Drop me a message!</p>
+          <h2 className="serif" style={{ fontSize: '2.5rem', marginBottom: '1rem', color: 'var(--text-main)' }}>Let's work together</h2>
+          <p style={{ marginBottom: '3rem', color: 'var(--text-muted)' }}>I'd love to hear about your project, idea, or opportunity. Drop me a message!</p>
           <div className="contact-links">
             <a href="mailto:khushikumari201280@gmail.com" className="contact-link">
               <i className="fa-regular fa-envelope"></i> Email Me
@@ -127,30 +127,32 @@ const Contact = () => {
           gap: 1rem; 
           font-size: 1.1rem; 
           padding: 0.8rem 1.2rem;
-          border: 1px solid #9a8e88;
+          border: 1px solid var(--text-muted);
           border-radius: 8px;
           width: fit-content;
+          color: var(--text-main);
           transition: all 0.4s ease;
         }
-        .contact-link:hover { border-color: #a0522d; color: #a0522d; }
-        .contact-link i { font-size: 1.3rem; color: #a0522d; }
+        .contact-link:hover { border-color: var(--accent-color); color: var(--accent-color); }
+        .contact-link i { font-size: 1.3rem; color: var(--accent-color); }
 
         .contact-form { display: grid; gap: 1.5rem; }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
         input, textarea {
           width: 100%;
           padding: 1rem;
-          background: white;
-          border: 1px solid #ddd;
+          background: var(--card-bg);
+          color: var(--text-main);
+          border: 1px solid var(--text-muted);
           border-radius: 8px;
           font-family: 'DM Sans', sans-serif;
           outline: none;
           transition: all 0.4s ease;
         }
-        input:focus, textarea:focus { border-color: #a0522d; }
+        input:focus, textarea:focus { border-color: var(--accent-color); }
         .submit-btn {
-          background: #a0522d;
-          color: white;
+          background: var(--btn-bg);
+          color: var(--btn-text);
           padding: 1rem;
           border: none;
           border-radius: 8px;
@@ -158,7 +160,7 @@ const Contact = () => {
           cursor: pointer;
           transition: all 0.4s ease;
         }
-        .submit-btn:hover { background-color: #8b4513; }
+        .submit-btn:hover { background-color: var(--btn-hover); }
         .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
 
         @media (max-width: 850px) {

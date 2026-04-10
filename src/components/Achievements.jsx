@@ -45,7 +45,7 @@ const Achievements = () => {
             <div key={idx} className="ach-card reveal-hidden" style={{ transitionDelay: `${idx * 150}ms` }}>
               <h3 className="serif" style={{ fontSize: '1.2rem', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>{ach.title}</h3>
               <p style={{ fontSize: '0.95rem' }}>{ach.desc}</p>
-              {ach.extra && <span style={{ display: 'block', marginTop: '0.5rem', fontSize: '0.85rem', color: '#9a8e88' }}>{ach.extra}</span>}
+              {ach.extra && <span style={{ display: 'block', marginTop: '0.5rem', fontSize: '0.85rem', color: 'var(--text-muted)' }}>{ach.extra}</span>}
             </div>
           )
         ))}
@@ -57,15 +57,16 @@ const Achievements = () => {
           gap: 2rem;
         }
         .ach-card {
-          background: rgba(255, 255, 255, 0.7);
+          background: var(--card-bg);
           padding: 2rem;
           border-radius: 12px;
+          border: 1px solid var(--card-border);
           box-shadow: var(--card-shadow);
-          border-left: 5px solid #d4af37;
+          border-left: 5px solid var(--accent-color);
         }
         .stat-card {
-          background: #a0522d;
-          color: white;
+          background: var(--btn-bg);
+          color: var(--btn-text);
           padding: 2rem;
           border-radius: 12px;
           text-align: center;
@@ -74,8 +75,8 @@ const Achievements = () => {
           margin-top: 1rem;
           display: inline-block;
           padding: 0.5rem 1rem;
-          background: white;
-          color: #a0522d;
+          background: var(--bg-color);
+          color: var(--accent-color);
           border-radius: 50px;
           font-weight: 700;
           font-size: 0.8rem;

@@ -1,11 +1,94 @@
 :root {
-  --bg-cream: #faf7f2;
-  --text-ink: #111007; /* Deep black */
+  /* Default Theme (Original Cream & Terracotta) */
+  --bg-color: #faf7f2;
+  --text-main: #111007;
   --text-muted: #9a8e88;
-  --accent-terracotta: #a0522d; /* Deeper terracotta */
+  --accent-color: #a0522d;
+  --accent-soft: rgba(160, 82, 45, 0.08);
   --accent-glow: rgba(201, 149, 106, 0.3);
+  --card-bg: #ffffff;
+  --card-border: transparent;
+  --btn-bg: #a0522d;
+  --btn-text: #ffffff;
+  --btn-hover: #8b4513;
+  
   --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
   --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Theme 1: Slate & Gold */
+[data-theme='slate'] {
+  --bg-color: #f8f9fa;
+  --text-main: #1c2b3a;
+  --text-muted: #64748b;
+  --accent-color: #c9973a;
+  --accent-soft: rgba(201, 151, 58, 0.1);
+  --accent-glow: rgba(201, 151, 58, 0.2);
+  --card-bg: #ffffff;
+  --card-border: #e8edf2;
+  --btn-bg: #c9973a;
+  --btn-text: #ffffff;
+  --btn-hover: #b08332;
+}
+
+/* Theme 2: Forest & Cream */
+[data-theme='forest'] {
+  --bg-color: #f5f5f0;
+  --text-main: #1a2e1a;
+  --text-muted: #6b705c;
+  --accent-color: #2d6a4f;
+  --accent-soft: rgba(45, 106, 79, 0.1);
+  --accent-glow: rgba(45, 106, 79, 0.25);
+  --card-bg: #ffffff;
+  --card-border: transparent;
+  --btn-bg: #2d6a4f;
+  --btn-text: #ffffff;
+  --btn-hover: #1b4332;
+}
+
+/* Theme 3: Charcoal & Dusty Rose */
+[data-theme='charcoal'] {
+  --bg-color: #fafafa;
+  --text-main: #2c2c2c;
+  --text-muted: #8e8e8e;
+  --accent-color: #c47c7c;
+  --accent-soft: rgba(196, 124, 124, 0.1);
+  --accent-glow: rgba(196, 124, 124, 0.2);
+  --card-bg: #ffffff;
+  --card-border: #f5eded;
+  --btn-bg: #c47c7c;
+  --btn-text: #ffffff;
+  --btn-hover: #b36666;
+}
+
+/* Theme 4: Navy & Coral */
+[data-theme='navy'] {
+  --bg-color: #f7f8fc;
+  --text-main: #0d1b2a;
+  --text-muted: #415a77;
+  --accent-color: #e8603c;
+  --accent-soft: rgba(232, 96, 60, 0.1);
+  --accent-glow: rgba(232, 96, 60, 0.25);
+  --card-bg: #ffffff;
+  --card-border: transparent;
+  --btn-bg: #e8603c;
+  --btn-text: #ffffff;
+  --btn-hover: #d14d2a;
+}
+
+/* Theme 5: Graphite & Sage */
+[data-theme='graphite'] {
+  --bg-color: #f4f4f2;
+  --text-main: #242424;
+  --text-muted: #6b6b6b;
+  --accent-color: #7a9e7e;
+  --accent-soft: rgba(122, 158, 126, 0.1);
+  --accent-glow: rgba(122, 158, 126, 0.2);
+  --card-bg: #ffffff;
+  --card-border: #e8ebe8;
+  --btn-bg: #7a9e7e;
+  --btn-text: #ffffff;
+  --btn-hover: #66876a;
 }
 
 * {
@@ -19,16 +102,18 @@ html {
 }
 
 body {
-  background-color: var(--bg-cream);
-  color: var(--text-ink);
+  background-color: var(--bg-color);
+  color: var(--text-main);
   font-family: 'DM Sans', sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
+  transition: background-color 0.6s ease, color 0.6s ease;
 }
 
 h1, h2, h3, h4, .serif {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
+  color: var(--text-main);
 }
 
 a {
@@ -62,7 +147,7 @@ section {
   display: inline-block;
   width: 2px;
   height: 1em;
-  background-color: var(--accent-terracotta);
+  background-color: var(--accent-color);
   margin-left: 2px;
   animation: blink 0.8s step-end infinite;
   vertical-align: middle;
@@ -93,12 +178,6 @@ section {
 .slide-left-visible {
   opacity: 1 !important;
   transform: translateX(0) !important;
-}
-
-/* Animations (Generic) */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Responsive */
