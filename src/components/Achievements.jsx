@@ -10,12 +10,17 @@ const Achievements = () => {
     {
       title: "📄 Research Publication",
       desc: 'Published paper: "Edge Computing Framework for Smart Classroom IoT", 2025',
-      extra: ''
+      extra: 'Published in Book Proceedings of NCETST 2025'
+    },
+    {
+      title: "🔬 Research Paper Submitted",
+      desc: '"NeuroFusionNet-XAI: Explainable Deep Feature Fusion with Adaptive Stacking Ensemble Learning for Neurological Disease Detection"',
+      extra: 'Submitted to International Journal of Medical Informatics'
     },
     {
       title: "🚀 Smart India Hackathon",
-      desc: "SIH 2024 & 2025",
-      extra: "Developed scalable web-based and technical solutions under time constraints at national level."
+      desc: "SIH 2024 & 2025 Participant",
+      extra: "Integrated AI and web-based systems to build scalable solutions under time constraints at national level."
     },
     {
       type: 'stat',
@@ -25,7 +30,7 @@ const Achievements = () => {
     },
     {
       title: "🎓 Academic Excellence",
-      desc: "CGPA 8.96/10.0",
+      desc: "CGPA 9.06/10.0",
       extra: "Government Engineering College, West Champaran"
     }
   ];
@@ -57,7 +62,7 @@ const Achievements = () => {
       <style>{`
         .ach-grid {
           display: grid;
-          grid-template_columns: repeat(auto-fill, minmax(300px, 1fr));
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
           gap: 2rem;
         }
         .ach-card {

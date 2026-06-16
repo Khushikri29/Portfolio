@@ -1,6 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Hero = () => {
+  const [text, setText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [loopNum, setLoopNum] = useState(0);
+  const [typingSpeed, setTypingSpeed] = useState(150);
+
+  const words = ["Full Stack Developer", "ML Engineer", "AI/ML Innovator"];
+
+  useEffect(() => {
+    const handleType = () => {
+      const i = loopNum % words.length;
+      const fullWord = words[i];
+
+      if (isDeleting) {
+        setText(fullWord.substring(0, text.length - 1));
+        setTypingSpeed(50);
+      } else {
+        setText(fullWord.substring(0, text.length + 1));
+        setTypingSpeed(100);
+      }
+
+      if (!isDeleting && text === fullWord) {
+        setTimeout(() => setIsDeleting(true), 1500);
+      } else if (isDeleting && text === '') {
+        setIsDeleting(false);
+        setLoopNum(loopNum + 1);
+        setTypingSpeed(300);
+      }
+    };
+
+    const timer = setTimeout(handleType, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [text, isDeleting, loopNum, typingSpeed]);
+
   return (
     <section id="home" className="container" style={{ paddingTop: '10rem', minHeight: '90vh' }}>
       <div className="badge" style={{ animation: 'fadeInUp 0.8s forwards', animationDelay: '0.2s', opacity: 0 }}>✦ Available for new opportunities</div>
@@ -8,7 +41,10 @@ const Hero = () => {
         Hi, I'm <br />
         <span className="serif" style={{ color: 'var(--accent)' }}>Khushi Kumari</span>
       </h1>
-      <p style={{ fontSize: '1.5rem', color: 'var(--text-secondary)', marginBottom: '2rem', animation: 'fadeInUp 0.8s forwards', animationDelay: '0.6s', opacity: 0 }}>Full Stack Developer & ML Engineer</p>
+      <p style={{ fontSize: '1.5rem', color: 'var(--text-secondary)', marginBottom: '2rem', animation: 'fadeInUp 0.8s forwards', animationDelay: '0.6s', opacity: 0, height: '2.25rem', display: 'flex', alignItems: 'center' }}>
+        <span>{text}</span>
+        <span className="typewriter-cursor"></span>
+      </p>
       <p style={{ maxWidth: '600px', fontSize: '1.1rem', marginBottom: '3rem', animation: 'fadeInUp 0.8s forwards', animationDelay: '0.8s', opacity: 0, color: 'var(--text-secondary)' }}>
         Building scalable systems at the intersection of web and AI. Passionate about crafting elegant solutions to complex problems.
       </p>

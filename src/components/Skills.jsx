@@ -2,13 +2,13 @@ import React from 'react';
 
 const Skills = () => {
   const categories = [
-    { title: "Languages", skills: ["Python", "JavaScript", "TypeScript", "SQL", "C/C++"] },
+    { title: "Programming", skills: ["Python", "JavaScript", "TypeScript", "SQL", "C/C++"] },
     { title: "Frontend", skills: ["React.js", "Next.js", "HTML5", "TailwindCSS", "Bootstrap"] },
-    { title: "Backend", skills: ["Node.js", "Express.js", "FastAPI", "RESTful APIs", "JWT Auth"] },
-    { title: "ML / AI", skills: ["Supervised Learning", "LSTM", "LLMs", "RAG", "Scikit-learn", "TensorFlow", "Pandas", "NumPy"] },
+    { title: "Backend", skills: ["Node.js", "Express.js", "FastAPI", "REST APIs", "JWT"] },
+    { title: "AI/ML", skills: ["LLMs", "RAG", "LSTM", "TensorFlow", "Scikit-learn", "Pandas", "NumPy"] },
     { title: "Databases", skills: ["MongoDB", "MySQL", "PostgreSQL", "Redis"] },
-    { title: "Cloud & Tools", skills: ["Docker", "AWS", "Linux", "Git", "GitHub", "Postman"] },
-    { title: "CS Fundamentals", skills: ["DSA", "OS", "DBMS", "Computer Networks", "OOPs"] }
+    { title: "Tools", skills: ["Docker", "AWS", "Linux", "Git", "GitHub", "Postman"] },
+    { title: "Core CS", skills: ["DSA", "OOPs", "DBMS", "Operating Systems"] }
   ];
 
   return (
@@ -32,6 +32,18 @@ const Skills = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* GitHub Contribution Graph */}
+        <div className="reveal-hidden" style={{ marginTop: '5rem', textAlign: 'center' }}>
+          <h3 className="serif" style={{ fontSize: '1.8rem', marginBottom: '2rem', color: 'var(--text-primary)' }}>GitHub Contributions</h3>
+          <div style={{ background: 'var(--bg-card)', padding: '2rem', borderRadius: '12px', border: '1px solid var(--border)', boxShadow: '0 10px 30px var(--shadow)', display: 'inline-block', width: '100%', maxWidth: '850px' }}>
+            <img 
+              src="https://ghchart.rshah.org/2b7a78/Khushikri29" 
+              alt="Khushi Kumari's GitHub Contributions" 
+              style={{ width: '100%', height: 'auto', display: 'block' }} 
+            />
+          </div>
         </div>
       </div>
       <style>{`
