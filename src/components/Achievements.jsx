@@ -30,7 +30,7 @@ const Achievements = () => {
     },
     {
       title: "🎓 Academic Excellence",
-      desc: "CGPA 9.06/10.0",
+      desc: "CGPA 9.05/10.0",
       extra: "Government Engineering College, West Champaran"
     }
   ];
