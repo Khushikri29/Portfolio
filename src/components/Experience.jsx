@@ -15,7 +15,7 @@ const Experience = () => {
     {
       role: "Software Engineer Intern",
       company: "DevStreak · Remote, India",
-      date: "May 2025 – Jul 2025",
+      date: "May 2025 – Nov 2025",
       points: [
         "Architected scalable React.js frontend supporting 2,000+ concurrent users.",
         "Designed and integrated secure RESTful APIs enabling seamless frontend-backend-ML communication.",
