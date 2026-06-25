@@ -9,14 +9,11 @@ const achievements = [
     desc: 'Published paper: "Edge Computing Framework for Smart Classroom IoT", 2025',
     extra: 'Published in Book Proceedings of NCETST 2025'
   },
-
-  // ✅ New Achievement
   {
-    title: "📖 Research Publication",
+    title: "📄 Research Publication",
     desc: 'Published paper: "An Edge-AI Based IoT System for Multi-Crop Monitoring and Intelligent Farming", NCETST 2026',
-    extra: "Published in the Book Proceedings of NCETST 2026"
+    extra: "Published in Book Proceedings of NCETST 2026"
   },
-
   {
     title: "🔬 Research Paper Submitted",
     desc: '"NeuroFusionNet-XAI: Explainable Deep Feature Fusion with Adaptive Stacking Ensemble Learning for Neurological Disease Detection"',
