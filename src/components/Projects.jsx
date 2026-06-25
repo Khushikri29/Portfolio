@@ -11,7 +11,7 @@ const neuroxplainImg = 'https://images.unsplash.com/photo-1559757175-0eb30cd8c06
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState('All');
-  const categories = ['All', 'Web', 'AI / ML'];
+ // const categories = ['All', 'Web', 'AI / ML'];
 
   const projects = [
     {
